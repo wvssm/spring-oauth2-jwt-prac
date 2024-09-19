@@ -43,8 +43,8 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             User user = new User();
             user.setUsername(username);
             user.setEmail(oAuth2Response.getEmail());
-            user.setName(oAuth2Response.getName());
-            user.setRole("ROLE_USER");
+            //user.setName(oAuth2Response.getName());
+            user.setRole(User.Role.ROLE_USER);
 
             userRepository.save(user);
 
@@ -59,7 +59,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         else {
             // 정보에 변경사항 있으면 업데이트
             existData.setEmail(oAuth2Response.getEmail());
-            existData.setName(oAuth2Response.getName());
+            //existData.setName(oAuth2Response.getName());
 
             // 로그인 처리
             UserDto userDto = new UserDto();
